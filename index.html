@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>親子教育知識平台藍圖</title>
+    <meta
+      name="description"
+      content="以親子教育為核心，整合理論、案例、工具與學習路徑的教育平台架構。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="page-top" class="page-top-anchor" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#page-top" data-scroll-top aria-label="回到首頁">
+        <span class="brand-mark">親</span>
+        <span>
+          <strong>親子教育知識平台</strong>
+          <small>Knowledge Architecture Blueprint</small>
+        </span>
+      </a>
+      <form class="site-search" role="search" aria-label="搜尋平台內容" data-site-search>
+        <label class="sr-only" for="site-search-input">搜尋平台內容</label>
+        <input
+          id="site-search-input"
+          type="search"
+          placeholder="搜尋：課題分離、鼓勵、青少年..."
+          autocomplete="off"
+          data-search-input
+        />
+        <button type="submit" aria-label="搜尋">搜尋</button>
+        <div class="search-results" data-search-results hidden></div>
+      </form>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="開啟選單"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-menu-toggle
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="top-nav" aria-label="主要導覽">
+        <a href="#positioning">定位</a>
+        <a href="#knowledge">知識體系</a>
+        <a href="#library">知識庫</a>
+        <a href="#content">內容模組</a>
+        <a href="#cases">案例系統</a>
+        <a href="#tools">工具系統</a>
+        <a href="#path">學習路徑</a>
+        <a href="#strategy">發展策略</a>
+      </nav>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="手機導覽" data-mobile-menu hidden>
+        <a href="#positioning">定位</a>
+        <a href="#knowledge">知識體系</a>
+        <a href="#library">知識庫</a>
+        <a href="#content">內容模組</a>
+        <a href="#cases">案例系統</a>
+        <a href="#tools">工具系統</a>
+        <a href="#path">學習路徑</a>
+        <a href="#strategy">發展策略</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">EdTech · 發展心理學 · 親職教育 · 知識架構</p>
+          <h1 id="hero-title">把親子教育從零散建議，整理成可學、可練、可擴充的知識系統。</h1>
+          <p class="hero-copy">
+            平台以「理論理解、案例判讀、情境應用、實作工具、學習路徑」為主軸，協助家長從理解孩子到做出更穩定的教養決策。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#knowledge">查看知識架構</a>
+            <a class="secondary-action" href="#path">瀏覽學習路徑</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="平台核心流程">
+          <h2>平台核心流程</h2>
+          <ol>
+            <li><span>看見</span>具體行為與情緒訊號</li>
+            <li><span>理解</span>孩子需求與家庭脈絡</li>
+            <li><span>回應</span>選擇理論與介入方式</li>
+            <li><span>練習</span>使用腳本、表單與活動</li>
+            <li><span>追蹤</span>回顧結果並修正策略</li>
+          </ol>
+        </aside>
+      </section>
+
+      <section class="section" id="positioning">
+        <div class="section-heading">
+          <p class="eyebrow">Part 1</p>
+          <h2>平台定位</h2>
+          <p>先定義平台服務誰、解決什麼問題，以及它和一般親職內容平台的差異。</p>
+        </div>
+        <div class="position-grid">
+          <article class="statement">
+            <h3>核心使命</h3>
+            <p>幫助家長從「憑直覺反應」轉向「有理解、有方法、有覺察的教養決策」。</p>
+          </article>
+          <article>
+            <h3>主要問題</h3>
+            <ul class="check-list">
+              <li>知道道理，但情境中做不到。</li>
+              <li>看不懂孩子行為背後的需求。</li>
+              <li>理論與實務之間缺少轉譯。</li>
+              <li>缺乏可反覆練習與追蹤的工具。</li>
+              <li>不同理論之間容易混亂。</li>
+            </ul>
+          </article>
+          <article>
+            <h3>差異化定位</h3>
+            <ul class="check-list">
+              <li>從文章平台升級為知識系統。</li>
+              <li>從技巧教學升級為判斷力養成。</li>
+              <li>從理論介紹升級為情境轉譯。</li>
+              <li>從一次學習升級為可追蹤成長。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="audience-tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="目標使用者">
+            <button class="tab-button active" type="button" data-tab="toddler">幼兒家長</button>
+            <button class="tab-button" type="button" data-tab="school">學齡家長</button>
+            <button class="tab-button" type="button" data-tab="teen">青少年家長</button>
+            <button class="tab-button" type="button" data-tab="educator">教育工作者</button>
+          </div>
+          <div class="tab-panel active" data-panel="toddler">
+            <h3>幼兒家長</h3>
+            <p>聚焦哭鬧、分離焦慮、生活常規、情緒命名、遊戲式引導與穩定回應。</p>
+            <ul class="compact-list">
+              <li>核心任務：建立安全感、可預測的生活節奏與基本情緒語言。</li>
+              <li>推薦內容：情緒觀察、穩定回應、界線入門、親子活動。</li>
+              <li>適合工具：情緒觀察表、生活常規圖卡、每日十分鐘連結活動。</li>
+            </ul>
+          </div>
+          <div class="tab-panel" data-panel="school">
+            <h3>學齡兒童家長</h3>
+            <p>聚焦功課拖延、生活自理、手足衝突、說謊、頂嘴、責任感與自我管理。</p>
+            <ul class="compact-list">
+              <li>核心任務：從提醒與催促，轉向責任分工與能力訓練。</li>
+              <li>推薦內容：課題分離、問題歸屬、鼓勵句型、自然後果、邏輯後果。</li>
+              <li>適合工具：功課拆解表、行為紀錄表、我的訊息改寫單。</li>
+            </ul>
+          </div>
+          <div class="tab-panel" data-panel="teen">
+            <h3>青少年家長</h3>
+            <p>聚焦尊重與界線、手機使用、交友戀愛、學習動機、親子疏離與權力衝突。</p>
+            <ul class="compact-list">
+              <li>核心任務：維持關係溫度，同時讓孩子練習選擇與承擔後果。</li>
+              <li>推薦內容：青少年界線、價值觀對話、同理傾聽、家庭會議。</li>
+              <li>適合工具：對話腳本、手機協議表、風險情境討論單。</li>
+            </ul>
+          </div>
+          <div class="tab-panel" data-panel="educator">
+            <h3>教育工作者</h3>
+            <p>聚焦系統化教材、案例分析框架、課程活動、家長引導語與工具表單。</p>
+            <ul class="compact-list">
+              <li>核心任務：把理論轉成可教、可討論、可練習的課程材料。</li>
+              <li>推薦內容：案例督導、工具設計、跨理論分析、學習路徑規劃。</li>
+              <li>適合工具：案例討論單、課程活動設計表、家長小組引導問題。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split" id="knowledge">
+        <div class="section-heading">
+          <p class="eyebrow">Part 2</p>
+          <h2>知識體系設計</h2>
+          <p>平台採用樹狀知識架構，讓每個新理論都能以一致規則納入。</p>
+        </div>
+        <div class="knowledge-layout">
+          <div class="tree-card">
+            <h3>Knowledge Tree</h3>
+            <ul class="tree">
+              <li>
+                <button type="button" class="tree-toggle">親子教育知識體系</button>
+                <ul>
+                  <li>
+                    <button type="button" class="tree-toggle">領域 Domain</button>
+                    <ul>
+                      <li>發展理解</li>
+                      <li>情緒與心理需求</li>
+                      <li>親子溝通</li>
+                      <li>行為與界線</li>
+                      <li>學習與自我管理</li>
+                      <li>手足與家庭系統</li>
+                      <li>青少年議題</li>
+                      <li>父母自我覺察</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <button type="button" class="tree-toggle">學派／理論 Theory</button>
+                    <ul>
+                      <li>阿德勒心理學</li>
+                      <li>冰山理論</li>
+                      <li>依附理論</li>
+                      <li>正向教養</li>
+                      <li>非暴力溝通</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <button type="button" class="tree-toggle">核心概念 Concept</button>
+                    <ul>
+                      <li>歸屬感</li>
+                      <li>鼓勵</li>
+                      <li>錯誤行為目標</li>
+                      <li><button type="button" class="tree-detail" data-detail="concept-task-separation">課題分離</button></li>
+                      <li><button type="button" class="tree-detail" data-detail="concept-natural-consequence">自然後果</button></li>
+                      <li><button type="button" class="tree-detail" data-detail="concept-logical-consequence">邏輯後果</button></li>
+                      <li>自我價值</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <button type="button" class="tree-toggle">應用內容 Application</button>
+                    <ul>
+                      <li>原理解析</li>
+                      <li>常見誤解</li>
+                      <li>案例分析</li>
+                      <li>情境應用</li>
+                      <li>實作工具</li>
+                      <li>延伸學習</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="level-grid">
+            <article data-detail="level-domain">
+              <span>01</span>
+              <h3>領域</h3>
+              <p>以家長真實問題作為入口，例如溝通、情緒、學習、手足、青少年議題。</p>
+            </article>
+            <article data-detail="level-theory">
+              <span>02</span>
+              <h3>理論</h3>
+              <p>保存專業來源與解釋視角，避免內容變成無脈絡的教養金句。</p>
+            </article>
+            <article data-detail="level-concept">
+              <span>03</span>
+              <h3>概念</h3>
+              <p>把大型理論拆成可學習、可標籤、可搜尋、可重組的知識單元。</p>
+            </article>
+            <article data-detail="level-application">
+              <span>04</span>
+              <h3>應用</h3>
+              <p>把概念轉譯成案例、腳本、工具、練習與下一步學習。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="library">
+        <div class="section-heading">
+          <p class="eyebrow">Knowledge Base</p>
+          <h2>親子教育知識庫</h2>
+          <p>依據資料夾中的講義、筆記、作業練習與案例素材整理而成；所有案例皆以匿名方式呈現。</p>
+        </div>
+        <div class="library-toolbar" aria-label="知識庫分類">
+          <button type="button" class="library-filter active" data-filter="all">全部</button>
+          <button type="button" class="library-filter" data-filter="adler">阿德勒核心</button>
+          <button type="button" class="library-filter" data-filter="communication">溝通與情緒</button>
+          <button type="button" class="library-filter" data-filter="family">家庭系統</button>
+          <button type="button" class="library-filter" data-filter="teen">青少年</button>
+          <button type="button" class="library-filter" data-filter="tools">工具與練習</button>
+        </div>
+        <div class="library-grid" data-library-grid></div>
+      </section>
+
+      <section class="section" id="content">
+        <div class="section-heading">
+          <p class="eyebrow">Part 3</p>
+          <h2>標準化內容模組</h2>
+          <p>每個理論都用同一套內容框架，保證品質穩定，也方便未來擴充。</p>
+        </div>
+        <div class="module-grid">
+          <article data-detail="module-origin"><strong>01</strong><h3>理論起源與背景</h3><p>建立可信度，說明理論適用範圍與限制。</p></article>
+          <article data-detail="module-concepts"><strong>02</strong><h3>核心概念解析</h3><p>拆解成家長可理解、可應用的主要觀念。</p></article>
+          <article data-detail="module-terms"><strong>03</strong><h3>關鍵術語說明</h3><p>統一平台語言，避免同詞不同義。</p></article>
+          <article data-detail="module-myths"><strong>04</strong><h3>常見迷思</h3><p>預防把尊重誤解成放任，把後果誤用成懲罰。</p></article>
+          <article data-detail="module-cases"><strong>05</strong><h3>真實案例分析</h3><p>用生活事件展示理論如何判讀。</p></article>
+          <article data-detail="module-scenarios"><strong>06</strong><h3>情境應用</h3><p>轉譯到功課、手機、頂嘴、手足衝突等場景。</p></article>
+          <article data-detail="module-practice"><strong>07</strong><h3>實作練習</h3><p>讓家長練習觀察、改寫句子、設計後果。</p></article>
+          <article data-detail="module-check"><strong>08</strong><h3>自我檢核</h3><p>確認自己是否理解與用對方法。</p></article>
+          <article data-detail="module-faq"><strong>09</strong><h3>FAQ</h3><p>回應卡關問題，降低學習挫折。</p></article>
+          <article data-detail="module-map"><strong>10</strong><h3>延伸地圖</h3><p>連到下一個概念、案例、工具或課程。</p></article>
+        </div>
+        <div class="flow-strip" aria-label="學習順序">
+          <button type="button" data-detail="flow-background">背景理解</button>
+          <button type="button" data-detail="flow-concept">核心概念</button>
+          <button type="button" data-detail="flow-myth">迷思澄清</button>
+          <button type="button" data-detail="flow-case">案例分析</button>
+          <button type="button" data-detail="flow-scenario">情境應用</button>
+          <button type="button" data-detail="flow-tool">工具練習</button>
+          <button type="button" data-detail="flow-check">自我檢核</button>
+        </div>
+      </section>
+
+      <section class="section" id="cases">
+        <div class="section-heading">
+          <p class="eyebrow">Part 4</p>
+          <h2>案例學習系統</h2>
+          <p>案例是平台最有價值的資料資產，用來連接理論與真實教養情境。</p>
+        </div>
+        <div class="case-builder">
+          <div class="case-schema">
+            <h3>案例資料結構</h3>
+            <ol>
+              <li>背景資訊</li>
+              <li>衝突事件</li>
+              <li>家長常見反應</li>
+              <li>孩子可能感受</li>
+              <li>問題分析</li>
+              <li>各理論觀點解析</li>
+              <li>介入方式</li>
+              <li>可執行行動方案</li>
+              <li>對話腳本與工具建議</li>
+              <li>結果追蹤方式</li>
+            </ol>
+          </div>
+          <div class="case-cards">
+            <article data-detail="case-homework">
+              <span>學習問題</span>
+              <h3>孩子拖延功課</h3>
+              <p>從阿德勒看行為目的，從冰山看害怕失敗，從執行功能看任務拆解。</p>
+            </article>
+            <article data-detail="case-teen-door">
+              <span>親子溝通</span>
+              <h3>青少年關門不說話</h3>
+              <p>分析疏離、界線、信任狀態與家長說教循環。</p>
+            </article>
+            <article data-detail="case-siblings">
+              <span>手足衝突</span>
+              <h3>兄妹爭寵與告狀</h3>
+              <p>判讀歸屬感、出生序、父母介入方式與合作訓練。</p>
+            </article>
+          </div>
+        </div>
+        <div class="tag-cloud" aria-label="案例分類">
+          <button type="button" data-detail="tag-age">年齡階段</button><button type="button" data-detail="tag-emotion">情緒問題</button><button type="button" data-detail="tag-learning">學習問題</button><button type="button" data-detail="tag-sibling">手足衝突</button>
+          <button type="button" data-detail="tag-social">人際關係</button><button type="button" data-detail="tag-communication">親子溝通</button><button type="button" data-detail="tag-self">自我管理</button><button type="button" data-detail="tag-parent">家長困境</button>
+          <button type="button" data-detail="tag-theory">理論標籤</button><button type="button" data-detail="tag-tool">工具類型</button>
+        </div>
+      </section>
+
+      <section class="section" id="tools">
+        <div class="section-heading">
+          <p class="eyebrow">Part 5</p>
+          <h2>實踐工具系統</h2>
+          <p>工具負責把理解轉成行動，讓家長在日常情境中可以反覆練習。</p>
+        </div>
+        <div class="tool-matrix">
+          <article data-detail="tool-checklist">
+            <h3>檢核表</h3>
+            <p>快速判斷責任歸屬與方法是否用對。</p>
+            <small>適用：課題分離、自然後果、邏輯後果、溝通前自我檢核</small>
+          </article>
+          <article data-detail="tool-assessment">
+            <h3>問卷評估</h3>
+            <p>了解教養風格、親子連結與孩子能力狀態。</p>
+            <small>適用：課前診斷、個人化推薦</small>
+          </article>
+          <article data-detail="tool-script">
+            <h3>對話腳本</h3>
+            <p>把理論轉成家長當下說得出口的語言。</p>
+            <small>適用：同理、我的訊息、界線、邀請合作</small>
+          </article>
+          <article data-detail="tool-activity">
+            <h3>親子活動</h3>
+            <p>增加正向互動，修復關係與建立連結。</p>
+            <small>適用：每日十分鐘、情緒卡、家庭感謝</small>
+          </article>
+          <article data-detail="tool-emotion-log">
+            <h3>情緒觀察表</h3>
+            <p>從「孩子又失控」轉向看見觸發點與需求。</p>
+            <small>適用：哭鬧、生氣、焦慮、挫折</small>
+          </article>
+          <article data-detail="tool-behavior-log">
+            <h3>行為紀錄表</h3>
+            <p>找出重複行為循環與家長反應模式。</p>
+            <small>適用：拖延、說謊、手機失控、打人</small>
+          </article>
+          <article data-detail="tool-worksheet">
+            <h3>工作表</h3>
+            <p>支援課程後練習與家長小組討論。</p>
+            <small>適用：課題分離、句型改寫、問題歸屬、後果設計</small>
+          </article>
+          <article data-detail="tool-reflection">
+            <h3>追蹤反思</h3>
+            <p>觀察方法是否有效，建立長期成長紀錄。</p>
+            <small>適用：兩週行動計畫、案例回顧</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="path">
+        <div class="section-heading">
+          <p class="eyebrow">Part 6</p>
+          <h2>學習路徑</h2>
+          <p>依照使用者成熟度設計階段任務，從基本觀念走向複雜情境判斷。</p>
+        </div>
+        <div class="path-timeline">
+          <article data-detail="path-beginner">
+            <span>Level 1</span>
+            <h3>初階：建立基本觀念</h3>
+            <p>理解孩子行為背後有需求，開始減少責罵、威脅與說教。</p>
+            <ul>
+              <li>必修：親子連結、情緒是訊號、鼓勵入門。</li>
+              <li>任務：記錄三次親子衝突，每天一句具體鼓勵。</li>
+              <li>晉級：能辨識自己的慣性反應。</li>
+            </ul>
+          </article>
+          <article data-detail="path-intermediate">
+            <span>Level 2</span>
+            <h3>中階：分析行為與需求</h3>
+            <p>能先做課題分離，再使用同理、我的訊息與合理後果。</p>
+            <ul>
+              <li>必修：課題分離、錯誤行為目標、問題歸屬、自然後果、邏輯後果。</li>
+              <li>任務：寫出五組我的訊息，分析三個案例，完成三份責任歸屬判斷。</li>
+              <li>晉級：能判斷孩子的課題、家長的課題或共同課題。</li>
+            </ul>
+          </article>
+          <article data-detail="path-advanced">
+            <span>Level 3</span>
+            <h3>進階：整合理論決策</h3>
+            <p>依孩子年齡、能力與關係狀態選擇介入方式。</p>
+            <ul>
+              <li>必修：家庭星座、冰山理論、家庭會議、青少年界線。</li>
+              <li>任務：完成完整案例分析與兩週追蹤計畫。</li>
+              <li>晉級：能說明選擇某介入方式的理由。</li>
+            </ul>
+          </article>
+          <article data-detail="path-expert">
+            <span>Level 4</span>
+            <h3>專家級：自主分析複雜情境</h3>
+            <p>能整合多理論，設計工具、課程或小組討論。</p>
+            <ul>
+              <li>必修：複雜家庭系統、高衝突溝通、案例督導。</li>
+              <li>任務：撰寫三個案例報告，設計一份親職工具。</li>
+              <li>晉級：能辨識需要轉介的心理或安全風險。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="strategy">
+        <div class="section-heading">
+          <p class="eyebrow">Part 7</p>
+          <h2>長期發展策略</h2>
+          <p>平台需要一套跨理論整合框架，讓內容越多時反而更清楚。</p>
+        </div>
+        <div class="strategy-grid">
+          <article data-detail="strategy-theories">
+            <h3>理論擴充路線</h3>
+            <p>先納入阿德勒、冰山、情緒教養、正向教養；再補依附、家庭系統、執行功能；進階加入創傷知情、CBT、敘事治療等。</p>
+          </article>
+          <article data-detail="strategy-conflict">
+            <h3>避免理論衝突</h3>
+            <p>區分理論層、案例層、工具層與追蹤層。每個理論都標示適用範圍、限制與轉介警示。</p>
+          </article>
+          <article data-detail="strategy-five-layer">
+            <h3>跨理論五層分析</h3>
+            <p>行為層、情緒層、需求層、關係層、能力層，分別對應不同理論與工具。</p>
+          </article>
+          <article data-detail="strategy-method">
+            <h3>平台方法論</h3>
+            <p>形成「看見、理解、回應、練習、追蹤」的共同流程，作為所有內容與案例的底層語言。</p>
+          </article>
+        </div>
+        <div class="method-card">
+          <h3>親子情境五層分析框架</h3>
+          <div class="method-steps">
+            <button type="button" data-detail="layer-behavior">行為：孩子做了什麼？</button>
+            <button type="button" data-detail="layer-emotion">情緒：雙方感受到什麼？</button>
+            <button type="button" data-detail="layer-need">需求：孩子在追求什麼？</button>
+            <button type="button" data-detail="layer-relationship">關係：親子連結如何？</button>
+            <button type="button" data-detail="layer-capability">能力：缺少什麼能力？</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>親子教育知識平台藍圖 · 理論建立深度，案例建立理解，工具建立行動，路徑建立成長。</p>
+      <a id="back-to-top" href="#page-top" data-scroll-top>回到頂端</a>
+    </footer>
+
+    <div class="detail-drawer" data-detail-drawer hidden>
+      <div class="detail-backdrop" data-close-detail></div>
+      <aside class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+        <button class="detail-close" type="button" data-close-detail aria-label="關閉內容">×</button>
+        <p class="detail-kicker" data-detail-kicker>內容</p>
+        <h2 id="detail-title" data-detail-title></h2>
+        <div class="detail-body" data-detail-body></div>
+      </aside>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
