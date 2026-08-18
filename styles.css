@@ -684,6 +684,13 @@ h1 {
   line-height: 1.3;
 }
 
+.scenario-level {
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 900;
+}
+
 .scenario-summary {
   min-height: 72px;
   color: var(--muted);
