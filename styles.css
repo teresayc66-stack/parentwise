@@ -593,6 +593,12 @@ h1 {
   display: block;
 }
 
+.decision-list strong,
+.decision-list span {
+  grid-column: 2;
+  min-width: 0;
+}
+
 .decision-list strong {
   margin-bottom: 4px;
   font-size: 18px;
