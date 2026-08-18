@@ -582,12 +582,13 @@ const hideSearchResults = () => {
     results.hidden = true;
     results.innerHTML = "";
   }
+  searchInput?.setAttribute("aria-expanded", "false");
 };
 
 const openSearchRecord = (record) => {
   hideSearchResults();
   if (record.type === "detail") {
-    openDetail(record.key);
+    openDetail(record.key, searchInput);
     return;
   }
 
@@ -611,6 +612,7 @@ const renderSearchResults = (query) => {
   if (!matches.length) {
     results.innerHTML = `<p class="search-empty">找不到相關內容，試試「鼓勵」「課題分離」「青少年」或「工具」。</p>`;
     results.hidden = false;
+    searchInput?.setAttribute("aria-expanded", "true");
     return;
   }
 
@@ -626,6 +628,7 @@ const renderSearchResults = (query) => {
     )
     .join("");
   results.hidden = false;
+  searchInput?.setAttribute("aria-expanded", "true");
 
   results.querySelectorAll("[data-search-index]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -640,6 +643,12 @@ const searchInput = document.querySelector("[data-search-input]");
 if (searchForm && searchInput) {
   searchInput.addEventListener("input", () => renderSearchResults(searchInput.value));
   searchInput.addEventListener("focus", () => renderSearchResults(searchInput.value));
+  searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      hideSearchResults();
+      searchInput.blur();
+    }
+  });
   searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const [firstMatch] = searchSite(searchInput.value);
@@ -776,7 +785,9 @@ renderLibrary();
 document.querySelectorAll(".library-filter").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".library-filter").forEach((item) => {
-      item.classList.toggle("active", item === button);
+      const isActive = item === button;
+      item.classList.toggle("active", isActive);
+      item.setAttribute("aria-pressed", String(isActive));
     });
     renderLibrary(button.dataset.filter);
   });
@@ -785,20 +796,41 @@ document.querySelectorAll(".library-filter").forEach((button) => {
 const tabGroups = document.querySelectorAll("[data-tabs]");
 
 tabGroups.forEach((group) => {
-  const buttons = group.querySelectorAll("[data-tab]");
-  const panels = group.querySelectorAll("[data-panel]");
+  const buttons = Array.from(group.querySelectorAll("[data-tab]"));
+  const panels = Array.from(group.querySelectorAll("[data-panel]"));
+
+  const activateTab = (button, moveFocus = false) => {
+    const target = button.dataset.tab;
+
+    buttons.forEach((item) => {
+      const isActive = item === button;
+      item.classList.toggle("active", isActive);
+      item.setAttribute("aria-selected", String(isActive));
+      item.tabIndex = isActive ? 0 : -1;
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel.dataset.panel === target;
+      panel.classList.toggle("active", isActive);
+      panel.hidden = !isActive;
+    });
+
+    if (moveFocus) button.focus();
+  };
 
   buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const target = button.dataset.tab;
-
-      buttons.forEach((item) => {
-        item.classList.toggle("active", item === button);
-      });
-
-      panels.forEach((panel) => {
-        panel.classList.toggle("active", panel.dataset.panel === target);
-      });
+    button.addEventListener("click", () => activateTab(button));
+    button.addEventListener("keydown", (event) => {
+      const currentIndex = buttons.indexOf(button);
+      let nextIndex = null;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (currentIndex + 1) % buttons.length;
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = buttons.length - 1;
+      if (nextIndex !== null) {
+        event.preventDefault();
+        activateTab(buttons[nextIndex], true);
+      }
     });
   });
 });
@@ -808,12 +840,14 @@ document.querySelectorAll(".tree-toggle").forEach((button) => {
   if (!nested) return;
 
   button.classList.add("open");
+  button.setAttribute("aria-expanded", "true");
   nested.hidden = false;
 
   button.addEventListener("click", () => {
     const isOpen = !nested.hidden;
     nested.hidden = isOpen;
     button.classList.toggle("open", !isOpen);
+    button.setAttribute("aria-expanded", String(!isOpen));
   });
 });
 
@@ -831,8 +865,12 @@ const drawer = document.querySelector("[data-detail-drawer]");
 const drawerTitle = document.querySelector("[data-detail-title]");
 const drawerKicker = document.querySelector("[data-detail-kicker]");
 const drawerBody = document.querySelector("[data-detail-body]");
+const drawerPanel = drawer?.querySelector(".detail-panel");
+const drawerClose = drawer?.querySelector(".detail-close");
+const pageRegions = document.querySelectorAll("header, main, footer");
+let detailReturnFocus = null;
 
-const openDetail = (key) => {
+const openDetail = (key, returnFocus = document.activeElement) => {
   const content = detailContent[key];
   if (!content) return;
 
@@ -841,11 +879,22 @@ const openDetail = (key) => {
   drawerBody.innerHTML = content.body.join("");
   drawer.hidden = false;
   document.body.style.overflow = "hidden";
+  detailReturnFocus = returnFocus;
+  pageRegions.forEach((region) => {
+    region.inert = true;
+  });
+  drawerClose?.focus();
 };
 
 const closeDetail = () => {
+  if (!drawer || drawer.hidden) return;
   drawer.hidden = true;
   document.body.style.overflow = "";
+  pageRegions.forEach((region) => {
+    region.inert = false;
+  });
+  if (detailReturnFocus instanceof HTMLElement) detailReturnFocus.focus();
+  detailReturnFocus = null;
 };
 
 document.addEventListener("click", (event) => {
@@ -865,6 +914,23 @@ document.querySelectorAll("[data-close-detail]").forEach((item) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && drawer && !drawer.hidden) {
     closeDetail();
+    return;
+  }
+  if (event.key === "Tab" && drawer && !drawer.hidden && drawerPanel) {
+    const focusable = Array.from(
+      drawerPanel.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ).filter((item) => !item.hidden);
+    if (focusable.length) {
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
   }
   if (event.key === "Escape") {
     closeMobileMenu();
@@ -904,13 +970,19 @@ const sections = Array.from(navLinks)
   .filter(Boolean);
 
 const setActiveNav = () => {
-  const current = sections.findLast((section) => section.getBoundingClientRect().top <= 120);
+  let current = null;
+  sections.forEach((section) => {
+    if (section.getBoundingClientRect().top <= 120) current = section;
+  });
   if (!current) return;
 
-  navLinks.forEach((link) => {
+  document.querySelectorAll('.top-nav a, .mobile-menu a').forEach((link) => {
     const isActive = link.getAttribute("href") === `#${current.id}`;
-    link.style.color = isActive ? "var(--green-dark)" : "";
-    link.style.background = isActive ? "var(--soft)" : "";
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
 };
 

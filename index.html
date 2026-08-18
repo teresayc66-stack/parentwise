@@ -3,21 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>親子教育知識平台藍圖</title>
+    <title>親子教育知識平台｜可學、可練的教養工具與案例</title>
     <meta
       name="description"
-      content="以親子教育為核心，整合理論、案例、工具與學習路徑的教育平台架構。"
+      content="整合理論、匿名案例、實作工具與學習路徑，協助家長理解孩子，做出更穩定的教養決策。"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=20260818" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">跳到主要內容</a>
     <div id="page-top" class="page-top-anchor" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="#page-top" data-scroll-top aria-label="回到首頁">
         <span class="brand-mark">親</span>
         <span>
           <strong>親子教育知識平台</strong>
-          <small>Knowledge Architecture Blueprint</small>
+          <small>理解孩子 · 練習回應 · 穩定成長</small>
         </span>
       </a>
       <form class="site-search" role="search" aria-label="搜尋平台內容" data-site-search>
@@ -27,10 +29,21 @@
           type="search"
           placeholder="搜尋：課題分離、鼓勵、青少年..."
           autocomplete="off"
+          aria-autocomplete="list"
+          aria-controls="search-results"
+          aria-expanded="false"
           data-search-input
         />
         <button type="submit" aria-label="搜尋">搜尋</button>
-        <div class="search-results" data-search-results hidden></div>
+        <div
+          class="search-results"
+          id="search-results"
+          role="region"
+          aria-label="搜尋結果"
+          aria-live="polite"
+          data-search-results
+          hidden
+        ></div>
       </form>
       <button
         class="menu-toggle"
@@ -66,7 +79,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-content">
@@ -126,12 +139,12 @@
 
         <div class="audience-tabs" data-tabs>
           <div class="tab-list" role="tablist" aria-label="目標使用者">
-            <button class="tab-button active" type="button" data-tab="toddler">幼兒家長</button>
-            <button class="tab-button" type="button" data-tab="school">學齡家長</button>
-            <button class="tab-button" type="button" data-tab="teen">青少年家長</button>
-            <button class="tab-button" type="button" data-tab="educator">教育工作者</button>
+            <button class="tab-button active" id="tab-toddler" type="button" role="tab" aria-selected="true" aria-controls="panel-toddler" tabindex="0" data-tab="toddler">幼兒家長</button>
+            <button class="tab-button" id="tab-school" type="button" role="tab" aria-selected="false" aria-controls="panel-school" tabindex="-1" data-tab="school">學齡家長</button>
+            <button class="tab-button" id="tab-teen" type="button" role="tab" aria-selected="false" aria-controls="panel-teen" tabindex="-1" data-tab="teen">青少年家長</button>
+            <button class="tab-button" id="tab-educator" type="button" role="tab" aria-selected="false" aria-controls="panel-educator" tabindex="-1" data-tab="educator">教育工作者</button>
           </div>
-          <div class="tab-panel active" data-panel="toddler">
+          <div class="tab-panel active" id="panel-toddler" role="tabpanel" aria-labelledby="tab-toddler" data-panel="toddler">
             <h3>幼兒家長</h3>
             <p>聚焦哭鬧、分離焦慮、生活常規、情緒命名、遊戲式引導與穩定回應。</p>
             <ul class="compact-list">
@@ -140,7 +153,7 @@
               <li>適合工具：情緒觀察表、生活常規圖卡、每日十分鐘連結活動。</li>
             </ul>
           </div>
-          <div class="tab-panel" data-panel="school">
+          <div class="tab-panel" id="panel-school" role="tabpanel" aria-labelledby="tab-school" data-panel="school" hidden>
             <h3>學齡兒童家長</h3>
             <p>聚焦功課拖延、生活自理、手足衝突、說謊、頂嘴、責任感與自我管理。</p>
             <ul class="compact-list">
@@ -149,7 +162,7 @@
               <li>適合工具：功課拆解表、行為紀錄表、我的訊息改寫單。</li>
             </ul>
           </div>
-          <div class="tab-panel" data-panel="teen">
+          <div class="tab-panel" id="panel-teen" role="tabpanel" aria-labelledby="tab-teen" data-panel="teen" hidden>
             <h3>青少年家長</h3>
             <p>聚焦尊重與界線、手機使用、交友戀愛、學習動機、親子疏離與權力衝突。</p>
             <ul class="compact-list">
@@ -158,7 +171,7 @@
               <li>適合工具：對話腳本、手機協議表、風險情境討論單。</li>
             </ul>
           </div>
-          <div class="tab-panel" data-panel="educator">
+          <div class="tab-panel" id="panel-educator" role="tabpanel" aria-labelledby="tab-educator" data-panel="educator" hidden>
             <h3>教育工作者</h3>
             <p>聚焦系統化教材、案例分析框架、課程活動、家長引導語與工具表單。</p>
             <ul class="compact-list">
@@ -265,12 +278,12 @@
           <p>依據資料夾中的講義、筆記、作業練習與案例素材整理而成；所有案例皆以匿名方式呈現。</p>
         </div>
         <div class="library-toolbar" aria-label="知識庫分類">
-          <button type="button" class="library-filter active" data-filter="all">全部</button>
-          <button type="button" class="library-filter" data-filter="adler">阿德勒核心</button>
-          <button type="button" class="library-filter" data-filter="communication">溝通與情緒</button>
-          <button type="button" class="library-filter" data-filter="family">家庭系統</button>
-          <button type="button" class="library-filter" data-filter="teen">青少年</button>
-          <button type="button" class="library-filter" data-filter="tools">工具與練習</button>
+          <button type="button" class="library-filter active" aria-pressed="true" data-filter="all">全部</button>
+          <button type="button" class="library-filter" aria-pressed="false" data-filter="adler">阿德勒核心</button>
+          <button type="button" class="library-filter" aria-pressed="false" data-filter="communication">溝通與情緒</button>
+          <button type="button" class="library-filter" aria-pressed="false" data-filter="family">家庭系統</button>
+          <button type="button" class="library-filter" aria-pressed="false" data-filter="teen">青少年</button>
+          <button type="button" class="library-filter" aria-pressed="false" data-filter="tools">工具與練習</button>
         </div>
         <div class="library-grid" data-library-grid></div>
       </section>
@@ -399,6 +412,14 @@
             <small>適用：兩週行動計畫、案例回顧</small>
           </article>
         </div>
+        <div class="worksheet-strip" aria-label="可列印工作表">
+          <div>
+            <span>新增工作表</span>
+            <h3>情緒命名思考單</h3>
+            <p>把「我很煩」「我不爽」「我就是想哭」整理成事件、情緒、需求與下一句回應。</p>
+          </div>
+          <a href="worksheets/emotion-naming-worksheet.html">開啟工作表</a>
+        </div>
       </section>
 
       <section class="section" id="path">
@@ -489,7 +510,10 @@
     </main>
 
     <footer class="site-footer">
-      <p>親子教育知識平台藍圖 · 理論建立深度，案例建立理解，工具建立行動，路徑建立成長。</p>
+      <div>
+        <p>親子教育知識平台 · 理論建立深度，案例建立理解，工具建立行動，路徑建立成長。</p>
+        <p class="footer-note">案例與人物資訊均採匿名、角色化呈現；內容供教育參考，不取代醫療、心理或法律專業服務。</p>
+      </div>
       <a id="back-to-top" href="#page-top" data-scroll-top>回到頂端</a>
     </footer>
 
@@ -503,6 +527,6 @@
       </aside>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260818"></script>
   </body>
 </html>
